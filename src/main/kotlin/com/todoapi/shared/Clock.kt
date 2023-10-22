@@ -1,4 +1,4 @@
-package com.todoapi.TODOAPI.shared
+package com.todoapi.shared
 
 import java.time.LocalDateTime
 

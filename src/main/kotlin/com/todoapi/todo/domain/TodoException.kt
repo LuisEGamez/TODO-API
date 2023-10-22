@@ -1,4 +1,4 @@
-package com.todoapi.TODOAPI.todo.domain
+package com.todoapi.todo.domain
 
 sealed class TodoException (override val message: String, override val cause: Throwable? = null) : RuntimeException(message, cause)
 

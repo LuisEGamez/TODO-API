@@ -1,4 +1,4 @@
-package com.todoapi.TODOAPI.todo.domain
+package com.todoapi.todo.domain
 
 interface TodoRepository {
 

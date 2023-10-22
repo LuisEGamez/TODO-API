@@ -1,6 +1,6 @@
-package com.todoapi.TODOAPI.todo.infrastructure
+package com.todoapi.todo.infrastructure
 
-import com.todoapi.TODOAPI.shared.Clock
+import com.todoapi.shared.Clock
 import java.time.LocalDateTime
 
 class ClockImp : Clock {

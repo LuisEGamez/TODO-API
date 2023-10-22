@@ -1,4 +1,4 @@
-package com.todoapi.TODOAPI
+package com.todoapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
