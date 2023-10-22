@@ -8,8 +8,8 @@ data class Todo(
     val title: TodoTitle,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
-    val startedAt: LocalDateTime,
-    val finishedAt: LocalDateTime,
+    val startedAt: LocalDateTime?,
+    val finishedAt: LocalDateTime?,
     val description: TodoDescription,
     val deleted: TodoDeleted
 ) {
@@ -24,7 +24,6 @@ data class Todo(
             startedAt: LocalDateTime,
             finishedAt: LocalDateTime,
             description: String,
-            deleted: Boolean
         ): Todo {
 
             return Todo(
@@ -35,7 +34,7 @@ data class Todo(
                 startedAt,
                 finishedAt,
                 TodoDescription(description),
-                TodoDeleted(deleted)
+                TodoDeleted(false)
             )
 
         }
