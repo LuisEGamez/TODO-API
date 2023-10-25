@@ -27,6 +27,7 @@ dependencies {
 
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework:spring-jdbc:5.3.22")
+	implementation("org.postgresql:postgresql:42.4.3")
 }
 
 tasks.withType<KotlinCompile> {
