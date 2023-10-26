@@ -1,0 +1,10 @@
+POST http://localhost:8080/todo
+Content-Type: application/json
+
+{
+  "title": "Test 1",
+  "description": "Test description"
+}
+
+
+
