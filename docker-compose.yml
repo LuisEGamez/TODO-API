@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   pa-postgres14:
-    container_name: pa-postgres14
+    container_name: pa-postgres14-flyway
     image: postgres:14-alpine
     ports:
       - "5433:5432"
@@ -13,4 +13,4 @@ services:
 
 volumes:
   data-postgres:
-    name: data-postgres-todo-api
+    name: data-postgres-todo-api-flyway
