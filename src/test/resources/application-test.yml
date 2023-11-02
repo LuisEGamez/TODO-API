@@ -1,9 +1,8 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:14.5:///todo_database_test
-    username: test
-    password: test
+    url: jdbc:tc:postgresql:14.5:///todo_database
+    username: postgres
+    password: postgres
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
   jpa:
-
     open-in-view: false
