@@ -4,7 +4,6 @@ import com.todoapi.todo.domain.Todo
 import com.todoapi.todo.domain.TodoId
 import com.todoapi.todo.domain.TodoRepository
 
-
 class JPAPostgresTodoRepository(private val hibernatePostgresTodoRepository : JPATodoRepository) : TodoRepository {
 
 
