@@ -4,7 +4,6 @@ import com.todoapi.shared.BaseIntegrationTest
 import com.todoapi.todo.domain.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 import java.time.LocalDateTime
@@ -14,20 +13,19 @@ import java.util.*
 class PostgresTodoRepositoryTest : BaseIntegrationTest() {
 
   @Autowired
-  private lateinit var jdbcTemplate: JdbcTemplate
+  private lateinit var jdbcTemplate: JPATodoRepository
 
   @Autowired
-  private lateinit var repository: PostgresTodoRepository
+  private lateinit var repository: JPAPostgresTodoRepository
 
   @Test
   fun `should save a todo`() {
 
     repository.save(todoToSave)
 
-    val query = "SELECT * FROM todo"
-    val query1 = jdbcTemplate.query(query, mapRow())
+    val allTodos = jdbcTemplate.findAll()
 
-    println(query1[0])
+    println(allTodos)
 
   }
 

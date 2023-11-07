@@ -6,6 +6,7 @@ plugins {
 	id("org.flywaydb.flyway") version "9.1.6"
 	kotlin("jvm") version "1.8.22"
 	kotlin("plugin.spring") version "1.8.22"
+	kotlin("plugin.jpa") version "1.9.20"
 }
 
 group = "com.todo-api"
@@ -24,7 +25,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
 
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework:spring-jdbc:5.3.22")
@@ -32,6 +35,7 @@ dependencies {
 
 	implementation("org.flywaydb:flyway-core:8.5.13")
 
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.12.5")
 	testImplementation("org.testcontainers:testcontainers:1.19.1")
 	testImplementation("org.testcontainers:jdbc:1.17.3")

@@ -32,7 +32,7 @@ class PostgresTodoRepository(private val jdbcTemplate: NamedParameterJdbcTemplat
 
   }
 
-  override fun find(id: TodoId): Todo? {
+  override fun findById(id: TodoId): Todo? {
     TODO("Not yet implemented")
   }
 

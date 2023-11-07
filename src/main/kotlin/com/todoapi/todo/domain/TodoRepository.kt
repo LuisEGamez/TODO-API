@@ -4,5 +4,5 @@ interface TodoRepository {
 
     fun save(todo: Todo)
 
-    fun find(id: TodoId): Todo?
+    fun findById(id: TodoId): Todo?
 }
