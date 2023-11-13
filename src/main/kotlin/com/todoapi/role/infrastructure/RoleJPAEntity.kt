@@ -8,8 +8,9 @@ import java.util.*
 @Table(name = "roles")
 data class RoleJPAEntity(
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
+  //@GeneratedValue(strategy = GenerationType.UUID)
   val id: UUID,
+
   @Enumerated(EnumType.STRING)
   @Column(nullable = false, name = "role")
   val role: ERole,

@@ -2,7 +2,7 @@ POST http://localhost:8080/todo
 Content-Type: application/json
 
 {
-  "title": "Test 3",
+  "title": "Test aads",
   "description": "Test description"
 }
 

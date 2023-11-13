@@ -5,3 +5,4 @@ sealed class UserException (override val message: String, override val cause: Th
 data class InvalidUserIdException(val id: String, override val cause: Throwable?) : UserException("The id <$id> is not a valid todo id", cause)
 data class InvalidUserEmailException(val email: String) : UserException("The email <$email> is not a valid email")
 data class InvalidUserNameException(val name: String) : UserException("The user name <$name> is not a valid user name")
+data class InvalidPasswordException(val password: String) : UserException("The password <$password> is not a valid password")

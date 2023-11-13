@@ -1,6 +1,5 @@
 package com.todoapi.user.domain
 
-import com.todoapi.role.domain.ERole
 import com.todoapi.role.domain.Role
 import java.time.LocalDateTime
 import java.util.*
@@ -54,7 +53,7 @@ data class UserPassword(val value: String) {
 
   private fun validate() {
     if (value.isBlank() || value.isEmpty()) {
-      throw InvalidUserNameException(value)
+      throw InvalidPasswordException(value)
     }
   }
 
@@ -79,7 +78,7 @@ data class UserEmail(val value: String) {
   }
 
   private fun validate() {
-    val stringPattern =  "^[A-Za-z0-9+_.-]+@(.+)$"
+    val stringPattern = "^[A-Za-z0-9+_.-]+@(.+)$"
     val pattern = Pattern.compile(stringPattern)
 
     val matcher = pattern.matcher(value)
@@ -105,11 +104,12 @@ data class UserName(val value: String) {
 
 }
 
-data class UserDeleted(val value: Boolean){
-  constructor(): this(true)
+data class UserDeleted(val value: Boolean) {
+  constructor() : this(true)
 }
-data class UserEnabled(val value: Boolean){
-  constructor(): this(false)
+
+data class UserEnabled(val value: Boolean) {
+  constructor() : this(false)
 }
 
 

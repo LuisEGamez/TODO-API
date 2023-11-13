@@ -35,6 +35,7 @@ dependencies {
 
 	implementation("org.flywaydb:flyway-core:8.5.13")
 
+	testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.12.5")
 	testImplementation("org.testcontainers:testcontainers:1.19.1")

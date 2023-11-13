@@ -1,9 +1,10 @@
-package com.todoapi.user.infrastructure
+package com.todoapi.user.infrastructure.repository
 
 import com.todoapi.role.domain.Role
 import com.todoapi.role.infrastructure.RoleJPAEntity
 import com.todoapi.role.infrastructure.RoleMapper
 import com.todoapi.user.domain.*
+import java.util.Optional
 
 class UserMapper {
 
@@ -26,7 +27,13 @@ class UserMapper {
 
     }
 
-    fun mapToDomainEntity(userJPAEntity: UserJPAEntity): User {
+    fun mapToDomainEntity(optionalUserJPAEntity: Optional<UserJPAEntity>): User? {
+
+      if(optionalUserJPAEntity.isEmpty){
+        return null
+      }
+
+      val userJPAEntity = optionalUserJPAEntity.get()
 
       return User(
         UserId(userJPAEntity.id),

@@ -8,7 +8,7 @@ import java.util.*
 @Table(name = "todo")
 data class TodoJPAEntity(
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
+  //@GeneratedValue(strategy = GenerationType.UUID)
   val id: UUID,
   @Column(nullable = false, name = "title")
   val title: String,

@@ -2,6 +2,7 @@ package com.todoapi.role.infrastructure
 
 import com.todoapi.role.domain.Role
 import com.todoapi.role.domain.RoleId
+import java.util.Optional
 
 class RoleMapper {
 
@@ -12,6 +13,21 @@ class RoleMapper {
       return RoleJPAEntity(
         role.id.value,
         role.role
+      )
+
+    }
+
+    fun mapToDomainEntity(optionalRoleJPAEntity: Optional<RoleJPAEntity>): Role? {
+
+      if(optionalRoleJPAEntity.isEmpty){
+        return null
+      }
+
+      val roleJPAEntity = optionalRoleJPAEntity.get()
+
+      return Role(
+        RoleId(roleJPAEntity.id),
+        roleJPAEntity.role
       )
 
     }

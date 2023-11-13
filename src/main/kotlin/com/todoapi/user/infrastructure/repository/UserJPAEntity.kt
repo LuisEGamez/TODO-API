@@ -1,4 +1,4 @@
-package com.todoapi.user.infrastructure
+package com.todoapi.user.infrastructure.repository
 
 import com.todoapi.role.infrastructure.RoleJPAEntity
 import jakarta.persistence.*
@@ -10,7 +10,7 @@ import java.util.regex.Pattern
 @Table(name = "users")
 data class UserJPAEntity(
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
+  //@GeneratedValue(strategy = GenerationType.UUID)
   val id: UUID,
   @Column(nullable = false, name = "created_at")
   val createdAt: LocalDateTime,
@@ -26,7 +26,7 @@ data class UserJPAEntity(
   val enabled: Boolean,
   @Column(nullable = false, name = "delete")
   val delete: Boolean,
-  @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleJPAEntity::class, cascade = [CascadeType.PERSIST])
+  @ManyToMany(fetch = FetchType.EAGER, targetEntity = RoleJPAEntity::class)
   @JoinTable(name = "user_roles", joinColumns = [JoinColumn(name = "user_id")], inverseJoinColumns = [JoinColumn(name = "role_id")])
   val roles: Set<RoleJPAEntity>
 )
