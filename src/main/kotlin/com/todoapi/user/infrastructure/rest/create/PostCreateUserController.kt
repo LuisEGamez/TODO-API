@@ -39,7 +39,7 @@ class PostCreateUserController(private val userCreateUseCase: UserCreateUseCase)
 
         is RoleNameNotFoundException -> ResponseEntity
           .status(HttpStatus.NOT_FOUND)
-          .body(exception.message.toString())
+          .body(exception.message)
 
         else -> ResponseEntity
           .status(HttpStatus.INTERNAL_SERVER_ERROR)
