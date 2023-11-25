@@ -30,7 +30,7 @@ class JPAPostgresUserRepositoryTest : BaseIntegrationTest() {
 
   companion object {
 
-    val userId = UUID.fromString("13590efb-c181-4c5f-9f95-b768abde13e2")
+    val userId: UUID = UUID.fromString("13590efb-c181-4c5f-9f95-b768abde13e2")
   }
 
 }

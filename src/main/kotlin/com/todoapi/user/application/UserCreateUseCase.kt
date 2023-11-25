@@ -8,9 +8,13 @@ import com.todoapi.shared.Clock
 import com.todoapi.user.application.exception.UserNotFoundException
 import com.todoapi.user.domain.User
 import com.todoapi.user.domain.UserRepository
+import org.springframework.security.crypto.password.PasswordEncoder
 
-class UserCreateUseCase(private val userRepository: UserRepository,private val roleRepository: RoleRepository,  private val clock: Clock) {
-
+class UserCreateUseCase(
+  private val userRepository: UserRepository,
+  private val roleRepository: RoleRepository,
+  private val clock: Clock
+) {
   fun create(email: String, name: String, password: String): User{
 
     val role = roleRepository.findByRole(ERole.USER) ?: throw RoleNameNotFoundException(ERole.USER.name)

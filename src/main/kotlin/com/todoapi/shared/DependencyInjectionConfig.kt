@@ -8,6 +8,7 @@ import com.todoapi.user.application.UserCreateUseCase
 import com.todoapi.user.domain.UserRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
 class DependencyInjectionConfig {
@@ -19,6 +20,7 @@ class DependencyInjectionConfig {
     fun todoCreator(todoRepository: TodoRepository, clock: Clock) = TodoCreator(todoRepository, clock)
 
     @Bean
-    fun userCreateUserCase(userRepository: UserRepository, roleRepository: RoleRepository,  clock: Clock) = UserCreateUseCase(userRepository,roleRepository, clock)
+    fun userCreateUserCase(userRepository: UserRepository, roleRepository: RoleRepository,  clock: Clock, passwordEncoder: PasswordEncoder)
+        = UserCreateUseCase(userRepository,roleRepository, clock)
 
 }

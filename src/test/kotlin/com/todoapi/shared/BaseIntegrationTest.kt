@@ -1,6 +1,7 @@
 package com.todoapi.shared
 
 import com.todoapi.TodoApiApplication
+import com.todoapi.shared.security.SecurityConfigTest
 import io.mockk.unmockkAll
 import org.junit.jupiter.api.AfterEach
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
@@ -12,8 +13,8 @@ import org.testcontainers.containers.PostgreSQLContainer
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ContextConfiguration(classes = [TodoApiApplication::class])
-@ActiveProfiles("test")
+@ContextConfiguration(classes = [TodoApiApplication::class, SecurityConfigTest::class])
+@ActiveProfiles(value = ["test"])
 class BaseIntegrationTest {
 
   init {

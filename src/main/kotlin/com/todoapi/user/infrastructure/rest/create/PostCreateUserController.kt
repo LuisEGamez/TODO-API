@@ -7,13 +7,14 @@ import com.todoapi.user.domain.InvalidUserEmailException
 import com.todoapi.user.domain.InvalidUserNameException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import java.net.URI
 
 @RestController
-class PostCreateUserController(private val userCreateUseCase: UserCreateUseCase) {
+class PostCreateUserController(private val userCreateUseCase: UserCreateUseCase, private val passwordEncoder: PasswordEncoder) {
 
   @PostMapping("/users")
   fun execute(
@@ -21,7 +22,7 @@ class PostCreateUserController(private val userCreateUseCase: UserCreateUseCase)
   ): ResponseEntity<String>{
 
     return try {
-      val user = userCreateUseCase.create(request.email, request.name, request.password)
+      val user = userCreateUseCase.create(request.email, request.name, passwordEncoder.encode(request.password))
       ResponseEntity.created(URI.create("/v1/users/${user.id.value}")).build()
     }catch (exception: Throwable){
       when (exception){

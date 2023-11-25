@@ -1,10 +1,6 @@
 package com.todoapi.user.infrastructure.repository
 
-import com.todoapi.user.domain.User
-import com.todoapi.user.domain.UserId
-import com.todoapi.user.domain.UserRepository
-import jakarta.transaction.Transactional
-import java.util.Optional
+import com.todoapi.user.domain.*
 
 
 class JPAPostgresUserRepository(private val jpaUserRepository: JPAUserRepository) : UserRepository {
@@ -23,6 +19,11 @@ class JPAPostgresUserRepository(private val jpaUserRepository: JPAUserRepository
     val userJPAEntityOptional = jpaUserRepository.findById(id.value)
     return UserMapper.mapToDomainEntity(userJPAEntityOptional)
 
+  }
+
+  override fun findByEmail(userName: UserEmail): User? {
+    val userJPAEntityOptional = jpaUserRepository.findByEmail(userName.value)
+    return UserMapper.mapToDomainEntity(userJPAEntityOptional)
   }
 
 }
