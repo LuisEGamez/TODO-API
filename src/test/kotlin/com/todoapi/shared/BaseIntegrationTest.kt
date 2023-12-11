@@ -1,7 +1,6 @@
 package com.todoapi.shared
 
 import com.todoapi.TodoApiApplication
-import com.todoapi.shared.security.SecurityConfigTest
 import io.mockk.unmockkAll
 import org.junit.jupiter.api.AfterEach
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
